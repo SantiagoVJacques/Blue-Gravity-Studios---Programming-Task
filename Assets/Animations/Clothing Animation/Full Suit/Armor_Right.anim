@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Body_Walking_Up
+  m_Name: Armor_Right
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 916492169, guid: 64998c978b2fdb44bb194781cb6015d0, type: 3}
+      value: {fileID: 75483544, guid: a52e70be7c60f3141bab2928ee98202d, type: 3}
     - time: 0.16666667
-      value: {fileID: -795919571, guid: 64998c978b2fdb44bb194781cb6015d0, type: 3}
+      value: {fileID: -1225579447, guid: a52e70be7c60f3141bab2928ee98202d, type: 3}
     - time: 0.33333334
-      value: {fileID: -1169532378, guid: 64998c978b2fdb44bb194781cb6015d0, type: 3}
+      value: {fileID: -607360751, guid: a52e70be7c60f3141bab2928ee98202d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 916492169, guid: 64998c978b2fdb44bb194781cb6015d0, type: 3}
-    - {fileID: -795919571, guid: 64998c978b2fdb44bb194781cb6015d0, type: 3}
-    - {fileID: -1169532378, guid: 64998c978b2fdb44bb194781cb6015d0, type: 3}
+    - {fileID: 75483544, guid: a52e70be7c60f3141bab2928ee98202d, type: 3}
+    - {fileID: -1225579447, guid: a52e70be7c60f3141bab2928ee98202d, type: 3}
+    - {fileID: -607360751, guid: a52e70be7c60f3141bab2928ee98202d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

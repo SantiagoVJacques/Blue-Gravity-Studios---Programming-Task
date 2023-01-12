@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed=5;
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D playerRB;
     Vector2 movement;
     public Animator PlayerAnimator;
     public Animator LegsAnimator;
@@ -47,12 +47,18 @@ public class PlayerMovement : MonoBehaviour
         if (!isMoving) 
         {
             PlayerAnimator.Play("Body_Idle");
-            if(inventory.pants.Count > 0)
-            LegsAnimator.Play(inventory.CurrentItem(inventory.pants) + "_Idle");
-            if (inventory.shirts.Count > 0) 
-            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts) + "_Shirt_Idle");
+            if (inventory.pants.Count > 0)
+            {
+                LegsAnimator.Play(inventory.CurrentItem(inventory.pants,"pants") + "_Idle");
+            }
+
+            if (inventory.shirts.Count > 0)
+            {
+                ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts,"shirts") + "_Idle");
+            }
+
             if (inventory.suits.Count > 0)
-            SuitAnimator.Play(inventory.CurrentItem(inventory.suits) + "_Idle");
+            SuitAnimator.Play(inventory.CurrentItem(inventory.suits,"suits") + "_Idle");
             
         }
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -71,53 +77,53 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerAnimator.Play("Body_Walking_Left");
             if (inventory.pants.Count > 0)
-            LegsAnimator.Play(inventory.CurrentItem(inventory.pants) +"_Walking_Left");
+            LegsAnimator.Play(inventory.CurrentItem(inventory.pants, "pants") +"_Walking_Left");
             
             if (inventory.shirts.Count > 0)
-            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts) + "_Shirt_Left");
+            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Left");
             
             if (inventory.suits.Count > 0)
-            SuitAnimator.Play(inventory.CurrentItem(inventory.suits) + "_Left");
+            SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Left");
         }
         if (movement.x > 0)
         {
             PlayerAnimator.Play("Body_Walking_Right");
             if (inventory.pants.Count > 0)
-            LegsAnimator.Play(inventory.CurrentItem(inventory.pants) + "_Walking_Right");
+            LegsAnimator.Play(inventory.CurrentItem(inventory.pants, "pants") + "_Walking_Right");
             
             if (inventory.shirts.Count > 0)
-            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts) + "_Shirt_Right");
+            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Right");
             if (inventory.suits.Count > 0)
-            SuitAnimator.Play(inventory.CurrentItem(inventory.suits) + "_Right");
+            SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Right");
         }
         if (movement.y < 0)
         {
             PlayerAnimator.Play("Body_Walking_Down");
             if (inventory.pants.Count > 0)
-            LegsAnimator.Play(inventory.CurrentItem(inventory.pants) + "_Walking_Down");
+            LegsAnimator.Play(inventory.CurrentItem(inventory.pants, "pants") + "_Walking_Down");
 
             if (inventory.shirts.Count > 0)
-            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts) + "_Shirt_Down");
+            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Down");
 
             if (inventory.suits.Count > 0)
-            SuitAnimator.Play(inventory.CurrentItem(inventory.suits) + "_Down");
+            SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Down");
         }
         if (movement.y > 0)
         {
             PlayerAnimator.Play("Body_Walking_Up");
             if (inventory.pants.Count > 0)
-            LegsAnimator.Play(inventory.CurrentItem(inventory.pants) + "_Walking_Up");
+            LegsAnimator.Play(inventory.CurrentItem(inventory.pants, "pants") + "_Walking_Up");
             
             if (inventory.shirts.Count > 0)
-            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts) + "_Shirt_Up");
+            ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Up");
 
             if (inventory.suits.Count > 0)
-            SuitAnimator.Play(inventory.CurrentItem(inventory.suits) + "_Up");
+            SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Up");
         }
     }
 
     private void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + movement * speed * Time.deltaTime);
+        playerRB.MovePosition(playerRB.position + movement * speed * Time.deltaTime);
     }
 }

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator SuitAnimator;
     public bool isMoving = false;
     public Player_Inventory inventory;
+    public bool suitOff = false;
     void Start()
     {
     }
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SuitAnimator.gameObject.SetActive(false);
         }
-        else if (inventory.suits.Count > 0)
+        else if (inventory.suits.Count > 0&&suitOff)
         {
             SuitAnimator.gameObject.SetActive(true);
         }
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts,"shirts") + "_Idle");
             }
 
-            if (inventory.suits.Count > 0)
+            if (inventory.suits.Count > 0 && suitOff)
             SuitAnimator.Play(inventory.CurrentItem(inventory.suits,"suits") + "_Idle");
             
         }
@@ -82,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             if (inventory.shirts.Count > 0)
             ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Left");
             
-            if (inventory.suits.Count > 0)
+            if (inventory.suits.Count > 0&&suitOff)
             SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Left");
         }
         if (movement.x > 0)
@@ -93,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             
             if (inventory.shirts.Count > 0)
             ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Right");
-            if (inventory.suits.Count > 0)
+            if (inventory.suits.Count > 0 && suitOff)
             SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Right");
         }
         if (movement.y < 0)
@@ -105,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             if (inventory.shirts.Count > 0)
             ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Down");
 
-            if (inventory.suits.Count > 0)
+            if (inventory.suits.Count > 0 && suitOff)
             SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Down");
         }
         if (movement.y > 0)
@@ -117,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             if (inventory.shirts.Count > 0)
             ShirtAnimator.Play(inventory.CurrentItem(inventory.shirts, "shirts") + "_Up");
 
-            if (inventory.suits.Count > 0)
+            if (inventory.suits.Count > 0 && suitOff)
             SuitAnimator.Play(inventory.CurrentItem(inventory.suits, "suits") + "_Up");
         }
     }

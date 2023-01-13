@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player_Inventory : MonoBehaviour
 {
     public int player_money = 100;
-    [SerializeField]public Queue<string> pants = new Queue<string>();
+    public Queue<string> pants = new Queue<string>();
     public Queue<string> shirts = new Queue<string>();
     public Queue<string> suits = new Queue<string>();
     void Awake()
     {
-        suits.Enqueue("Robe");
+        pants.Enqueue("Gray_Pants");
     }
     public string CurrentItem(Queue<string> item,string itemType) 
     {
@@ -29,24 +29,32 @@ public class Player_Inventory : MonoBehaviour
         }
         else return p;
     }
-    public void NextItem(Queue<string> item) 
-    {
-        item.Enqueue(item.Peek());
-        item.Dequeue();
-    }
-    public void SellPants() 
-    {
-        if (pants.Count > 0)
-        pants.Dequeue();
-    }
 
-    public void BuyPants() 
+    public bool InventoryNotEmpty() 
     {
-        pants.Enqueue("Gray");
+        if (suits.Count > 0) 
+        {
+            return true;
+        }
+        else if (pants.Count > 0) 
+        {
+            return true;
+        }
+        else if (shirts.Count > 0) 
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("space")) 
+        {
+            Debug.Log(suits.Peek());
+        }
     }
 }
